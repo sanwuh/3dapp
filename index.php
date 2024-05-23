@@ -2,7 +2,7 @@
 require_once 'config.php';
 require_once 'model/database.php';
 
-// 此处只在第一次运行 在初始化完成后注释掉代码
+// only run once
 /*
 $db = new Database();
 $db->createTable();

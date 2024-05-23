@@ -2,7 +2,20 @@
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
 <X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
   <Scene DEF='scene'>
-    <Viewpoint DEF='Camera001' description='Camera001' orientation='1 0 0 -0.08278' position='0.0001318 288.5 3441' fieldOfView='0.5274'/>
+    <!-- 添加摄像头 -->
+    
+    <Viewpoint DEF='Camera001-18' id='Camera001-18' description='Camera001-18' orientation='0.9841 0.06543 0.165 -0.1977' position='-37.95 757.9 3842' fieldOfView='0.7363'/>
+    <Viewpoint DEF='Camera002-20' id='Camera002-20' description='Camera002-20' orientation='0.01688 -0.998 -0.06106 -2.603' position='2220 530.9 -3709' fieldOfView='0.6024'/>
+    <Viewpoint DEF='Camera003-21' id='Camera003-21' description='Camera003-21' orientation='0 0 1 0' position='0 0 5' fieldOfView='0.7854'/>
+    
+    <!-- 添加灯光 -->
+    <PointLight DEF='Omni001-6' id='Omni001-6' intensity='1' location='-1860 1456 -1416' radius='13490' color='1 0 0'/> <!-- 红色 -->
+    <PointLight DEF='Omni002-7' id='Omni002-7' intensity='1' location='1940 1456 -1404' radius='13490' color='0 1 0'/> <!-- 绿色 -->
+    <PointLight DEF='Omni003-8' id='Omni003-8' intensity='1' location='-38.89 1456 1745' radius='13490' color='0 0 1'/> <!-- 蓝色 -->
+    <PointLight DEF='Omni004-11' id='Omni004-11' intensity='1' location='-8.246 -1231 -1432' radius='13490' color='1 1 0'/> <!-- 黄色 -->
+    <PointLight DEF='Omni005-12' id='Omni005-12' intensity='1' location='1917 -1189 1764' radius='13490' color='0 1 1'/> <!-- 青色 -->
+    <PointLight DEF='Omni006-13' id='Omni006-13' intensity='1' location='-1931 -1189 1790' radius='13490' color='1 0 1'/> <!-- 紫色 -->
+
     <NavigationInfo DEF='NavInfo001' type='"EXAMINE"'/>
     <Transform DEF='Line001' rotation='-0.6477 -0.5387 0.5387 -1.992' translation='36.78 -31.99 -198.5'>
       <Shape>

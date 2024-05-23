@@ -22,8 +22,12 @@ function switchCamera(cameraId) {
         data: { cameraId: cameraId },
         success: function(response) {
             var data = JSON.parse(response);
-            var viewpoint = document.getElementById(data.cameraId);
-            viewpoint.setAttribute('set_bind', 'true');
+            var viewpoint = document.getElementById('model__' + data.cameraId);
+            if (viewpoint) {
+                viewpoint.setAttribute('set_bind', 'true');
+            } else {
+                console.log('Error: Camera ID not found');
+            }
         },
         error: function() {
             console.log('Error switching camera');
@@ -31,22 +35,25 @@ function switchCamera(cameraId) {
     });
 }
 
-function toggleLight(lightId) {
+function toggleLight(lightId, cameraId) {
     $.ajax({
         url: 'controller/toggleLight.php',
         type: 'POST',
         data: { lightId: lightId },
         success: function(response) {
             var data = JSON.parse(response);
-            var light = document.getElementById(data.lightId);
+            var light = document.getElementById('model__' + data.lightId);
             var intensity = light.getAttribute('intensity') === '1' ? '0' : '1';
             light.setAttribute('intensity', intensity);
+            switchCamera(cameraId); // 同时切换摄像头
         },
         error: function() {
             console.log('Error toggling light');
         }
     });
 }
+
+
 
 function switchView(viewId) {
     $.ajax({
@@ -55,7 +62,7 @@ function switchView(viewId) {
         data: { viewId: viewId },
         success: function(response) {
             var data = JSON.parse(response);
-            var viewpoint = document.getElementById(data.viewId);
+            var viewpoint = document.getElementById('model__' + data.viewId);
             viewpoint.setAttribute('set_bind', 'true');
         },
         error: function() {
@@ -63,6 +70,7 @@ function switchView(viewId) {
         }
     });
 }
+
 
 function animateModel() {
     // 在这里添加动画逻辑
